@@ -1,13 +1,18 @@
 package manuele.bryan.small_world;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.parse.ParseAnalytics;
+import com.parse.ParseUser;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends Activity {
 
     EditText userNameField;
     EditText passworldField;
@@ -18,6 +23,24 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ParseAnalytics.trackAppOpened(getIntent());
+        ParseUser currentUser = ParseUser.getCurrentUser();
+
+        if (currentUser == null) {
+            navigateToLogin();
+        } else {
+            System.out.println(currentUser.getUsername());
+        }
+
+
+
+    }
+
+    private void navigateToLogin() {
+        Intent intent = new Intent(this, LogIn.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
 

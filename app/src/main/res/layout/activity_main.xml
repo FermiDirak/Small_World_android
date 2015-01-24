@@ -1,18 +1,64 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/locationDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1">
 
-    <TextView
-        android:id="@+id/numberOfUserDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/locationDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.13"
+            android:gravity="center"
+            android:text="You are at "
+            android:textSize="30sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.17" />
+
+        <TextView
+            android:id="@+id/numberOfUserDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="There are "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/usersNearby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.27"
+            android:gravity="center"
+            android:text="1"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/numberOfUserDisplay2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="users nearby"
+            android:textSize="30sp" />
+    </LinearLayout>
 
 </LinearLayout>
+
+

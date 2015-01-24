@@ -1,17 +1,28 @@
 package manuele.bryan.small_world;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 
-public class SignUp extends ActionBarActivity {
+public class SignUp extends Activity {
+
+    EditText usernameField;
+    EditText passField;
+    EditText passConfirmField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        usernameField = (EditText) findViewById(R.id.userField);
+        passField = (EditText) findViewById(R.id.passwordField);
+        passConfirmField = (EditText) findViewById(R.id.confirmPasswordField);
+
     }
 
 
