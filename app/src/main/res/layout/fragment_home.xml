@@ -19,7 +19,6 @@
 
         <TextView
             android:textColor = "#FFFFFF"
-            android:id="@+id/locationDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.31"
@@ -29,7 +28,7 @@
 
         <TextView
             android:textColor = "#FFFFFF"
-            android:id="@+id/textView3"
+            android:id="@+id/locationDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.13"
@@ -43,10 +42,10 @@
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.17" />
+            android:id="@+id/numberOfUserDisplay"
 
         <TextView
             android:textColor = "#FFFFFF"
-            android:id="@+id/numberOfUserDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -55,7 +54,7 @@
 
         <TextView
             android:textColor = "#FFFFFF"
-            android:id="@+id/usersNearby"
+            android:id="@+id/userCountDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

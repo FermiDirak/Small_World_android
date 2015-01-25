@@ -6,12 +6,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import manuele.bryan.small_world.Activities.MainActivity;
 import manuele.bryan.small_world.R;
 
 public class HomeFragment extends Fragment {
-
     View rootView;
+
+    TextView locationField;
+    TextView userCounterField;
 
     // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance() {
@@ -36,9 +40,13 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        locationField = (TextView) rootView.findViewById(R.id.locationDisplay);
+        userCounterField = (TextView) rootView.findViewById(R.id.userCountDisplay);
+
+        locationField.setText(MainActivity.longitude + " " + MainActivity.latitude);
+
         return rootView;
     }
 

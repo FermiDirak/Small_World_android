@@ -2,6 +2,7 @@ package manuele.bryan.small_world.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -32,6 +33,9 @@ public class MainActivity extends ActionBarActivity implements
     EditText passworldField;
     EditText confirmPassworldField;
 
+    public static double longitude = 0;
+    public static double latitude = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +50,12 @@ public class MainActivity extends ActionBarActivity implements
             System.out.println(currentUser.getUsername());
         }
 
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        longitude = location.getLongitude();
+        latitude = location.getLatitude();
+
+
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
