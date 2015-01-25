@@ -1,6 +1,8 @@
 package manuele.bryan.small_world.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -20,6 +22,8 @@ import manuele.bryan.small_world.R;
 
 public class MainActivity extends ActionBarActivity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
+
+    LocationManager locationManager;
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
@@ -41,6 +45,8 @@ public class MainActivity extends ActionBarActivity implements
         } else {
             System.out.println(currentUser.getUsername());
         }
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
