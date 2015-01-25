@@ -1,24 +1,40 @@
 package manuele.bryan.small_world.Activities;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 
-import manuele.bryan.small_world.Activities.LogInActivity;
+import org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import manuele.bryan.small_world.R;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
+
+    GoogleNavigationDrawer mDrawer;
 
     EditText userNameField;
     EditText passworldField;
+
     EditText confirmPassworldField;
+    private ActionBarDrawerToggle drawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +50,16 @@ public class MainActivity extends Activity {
             System.out.println(currentUser.getUsername());
         }
 
+        mDrawer = (GoogleNavigationDrawer) findViewById(R.id.navigation_drawer_container);
 
+        mDrawer.setOnNavigationSectionSelected(new GoogleNavigationDrawer.OnNavigationSectionSelected() {
+            @Override
+            public void onSectionSelected(View v, int i, long l) {
+                //Todo:change the stuffs
+
+
+            }
+        });
 
     }
 

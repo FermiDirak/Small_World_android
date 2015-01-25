@@ -46,12 +46,6 @@ public class SignUpActivity extends Activity {
                 if (username.isEmpty() || pass.isEmpty() || passConfirm.isEmpty()) {
                     createAccountEmptyError();
                 } else {
-                    if (!pass.equals(passConfirm)) {
-                        createAccountEmptyError();
-                    }
-                    //create new user
-
-                    setProgressBarIndeterminateVisibility(true);
 
                     ParseUser newUser = new ParseUser();
                     newUser.setUsername(username);
@@ -64,7 +58,6 @@ public class SignUpActivity extends Activity {
 
                             if (e == null) {
                                 //success
-
                                 Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="light_blue" type="color">#B3CBFF</item>
+    <item name="lightish_blue" type="color">#98B7FA</item>
+    <item name ="dark_blue" type="color">#3675FF</item>
+
+    <item name="light_brown" type="color">#c8b7be</item>
+    <item name="brown" type="color">#48373e</item>
+    <item name="dark_brown" type="color">#241c1f</item>
+    <item name="really_dark_brown" type="color">#090707</item>
+
+    <item name="background" type="color">#2f3140</item>
+    <item name="slider" type="color">#9f95ae</item>
+
+    <item name="light_green" type="color">#7d968d</item>
+    <item name="soft_green" type="color">#2f3140</item>
+    <item name="green" type="color">#666a78</item>
+    <item name="dark_green" type="color">#4d5e65</item>
+    <item name="second_green" type="color">#2f3140</item>
+    <item name="really_dark_green" type="color">#1c1d26</item>
+
+</resources>
+
+
