@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile files('src/main/libs/Parse-1.6.0.jar')
     compile 'com.arasthel:gnavdrawer-library:+'
+    compile 'com.couchbase.lite:couchbase-lite-android:1.0.3.1'
 }

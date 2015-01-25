@@ -21,6 +21,7 @@ import manuele.bryan.small_world.NavigationDrawerFragment;
 import manuele.bryan.small_world.R;
 
 
+
 public class MainActivity extends ActionBarActivity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -55,7 +56,7 @@ public class MainActivity extends ActionBarActivity implements
         longitude = location.getLongitude();
         latitude = location.getLatitude();
 
-
+        //Todo:add storage
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -86,14 +87,13 @@ public class MainActivity extends ActionBarActivity implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                ParseUser.logOut();
+                navigateToLogin();
+
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

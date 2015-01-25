@@ -25,6 +25,7 @@
                 android:layout_height="80dp" />
 
             <ImageView
+                android:id="@+id/userImage"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:background="#555555" />
@@ -39,6 +40,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Username"
@@ -49,10 +51,11 @@
                     android:layout_height="20dp" />
 
                 <TextView
+                    android:id="@+id/distance"
                     android:textColor = "#616263"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Information"
+                    android:text="15 miles"
                     android:textSize="15sp" />
             </LinearLayout>
 

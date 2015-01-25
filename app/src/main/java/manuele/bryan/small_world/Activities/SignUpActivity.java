@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -46,6 +47,13 @@ public class SignUpActivity extends Activity {
                 if (username.isEmpty() || pass.isEmpty() || passConfirm.isEmpty()) {
                     createAccountEmptyError();
                 } else {
+
+                    if (!pass.equals(passConfirm)) {
+                        Toast.makeText(getBaseContext(),
+                                "Password and confirmation password don't match",
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
                     ParseUser newUser = new ParseUser();
                     newUser.setUsername(username);
