@@ -16,6 +16,16 @@
         <item>Nearby</item>
     </string-array>
 
+    <string name="title_section_1">Home</string>
+    <string name="title_section_2">Recent</string>
+    <string name="title_section_3">Top</string>
+    <string name="title_section_4">Friends</string>
+    <string name="title_section_5">Nearby</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
     <string name="title_activity_user">User</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

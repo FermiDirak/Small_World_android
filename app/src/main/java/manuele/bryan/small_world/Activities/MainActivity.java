@@ -1,40 +1,32 @@
 package manuele.bryan.small_world.Activities;
 
-import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 
-import org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import manuele.bryan.small_world.Fragments.HomeFragment;
+import manuele.bryan.small_world.Fragments.UserListFragment;
+import manuele.bryan.small_world.NavigationDrawerFragment;
 import manuele.bryan.small_world.R;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends ActionBarActivity implements
+        NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    GoogleNavigationDrawer mDrawer;
+    private NavigationDrawerFragment mNavigationDrawerFragment;
+    private CharSequence mTitle;
 
     EditText userNameField;
     EditText passworldField;
-
     EditText confirmPassworldField;
-    private ActionBarDrawerToggle drawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +42,15 @@ public class MainActivity extends FragmentActivity {
             System.out.println(currentUser.getUsername());
         }
 
-        mDrawer = (GoogleNavigationDrawer) findViewById(R.id.navigation_drawer_container);
+        mNavigationDrawerFragment = (NavigationDrawerFragment)
+                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mTitle = getTitle();
 
-        mDrawer.setOnNavigationSectionSelected(new GoogleNavigationDrawer.OnNavigationSectionSelected() {
-            @Override
-            public void onSectionSelected(View v, int i, long l) {
-                //Todo:change the stuffs
+        // Set up the drawer.
+        mNavigationDrawerFragment.setUp(
+                R.id.navigation_drawer,
+                (DrawerLayout) findViewById(R.id.drawer_layout));
 
-
-            }
-        });
 
     }
 
@@ -91,5 +82,24 @@ public class MainActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onNavigationDrawerItemSelected(int position) {
+
+        Fragment oFragment = null;
+
+        switch (position) {
+            case 0:
+                oFragment = new HomeFragment();
+                break;
+            default:
+                oFragment = new UserListFragment();
+        }
+
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, oFragment)
+                .commit();
     }
 }

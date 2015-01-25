@@ -1,18 +1,18 @@
-<org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:drawer="http://schemas.android.com/apk/res-auto"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_drawer_container"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    drawer:drawer_gravity="start"
-    drawer:list_mainSectionsEntries="@array/navigation_main_sections"
-    drawer:list_paddingTop="?android:actionBarSize"
-    >
+    tools:context=".MainActivity">
 
-    <fragment
-        android:name="manuele.bryan.small_world.Fragments.HomeFragment"
-        android:layout_height="match_parent"
+    <FrameLayout android:id="@+id/container"
         android:layout_width="match_parent"
-        tools:layout="@layout/fragment_home" />
+        android:layout_height="match_parent" />
 
-</org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer>
+    <fragment android:id="@+id/navigation_drawer"
+        android:layout_width="@dimen/navigation_drawer_width" android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:name="manuele.bryan.small_world.NavigationDrawerFragment"
+        tools:layout="@layout/fragment_navigation_drawer" />
+
+</android.support.v4.widget.DrawerLayout>
