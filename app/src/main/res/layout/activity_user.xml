@@ -18,9 +18,25 @@
         android:background = "#000000"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:id="@+id/imageView"
-        android:layout_alignBottom="@+id/textView4"
+        android:id="@+id/userImage"
+        android:layout_alignBottom="@+id/userImage"
         android:layout_centerHorizontal="true" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:textSize = "25sp"
+        android:textColor = "#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Username"
+        android:id="@+id/username"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textStyle="normal" />
 
     <Space
         android:layout_width="match_parent"
@@ -41,7 +57,7 @@
             android:text = "Meets"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:id="@+id/imageButton" />
+            android:id="@+id/meetButton" />
 
         <Space
             android:layout_width="40dp"
@@ -55,23 +71,40 @@
             android:background = "#293E6A"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:id="@+id/imageButton2" />
+            android:id="@+id/chatButton" />
     </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="50dp" />
 
     <TextView
         android:textColor = "#639BF1"
         android:textSize = "25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ranking on your list"
+        android:text="Ranking on your list:"
         android:id="@+id/textView4"
         android:layout_gravity="center_horizontal" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:textSize = "30sp"
+        android:textStyle = "bold"
+        android:textColor = "#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:id="@+id/rankNumber"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>
+
+
 
 
 

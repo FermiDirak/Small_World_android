@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -14,6 +15,12 @@ import android.widget.EditText;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 import manuele.bryan.small_world.Fragments.HomeFragment;
 import manuele.bryan.small_world.Fragments.UserListFragment;
@@ -25,8 +32,6 @@ import manuele.bryan.small_world.R;
 public class MainActivity extends ActionBarActivity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    LocationManager locationManager;
-
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
 
@@ -34,6 +39,7 @@ public class MainActivity extends ActionBarActivity implements
     EditText passworldField;
     EditText confirmPassworldField;
 
+    private static final String SYNC_URL = "localhost:4984/kitchen-sync";
     public static double longitude = 0;
     public static double latitude = 0;
 
@@ -45,18 +51,12 @@ public class MainActivity extends ActionBarActivity implements
         ParseAnalytics.trackAppOpened(getIntent());
         ParseUser currentUser = ParseUser.getCurrentUser();
 
+
         if (currentUser == null) {
             navigateToLogin();
         } else {
             System.out.println(currentUser.getUsername());
         }
-
-        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        longitude = location.getLongitude();
-        latitude = location.getLatitude();
-
-        //Todo:add storage
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -66,7 +66,6 @@ public class MainActivity extends ActionBarActivity implements
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
 
     }
 
@@ -116,5 +115,9 @@ public class MainActivity extends ActionBarActivity implements
         fragmentManager.beginTransaction()
                 .replace(R.id.container, oFragment)
                 .commit();
+    }
+
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 }

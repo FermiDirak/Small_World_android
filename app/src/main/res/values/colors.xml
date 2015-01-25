@@ -19,6 +19,8 @@
     <item name="second_green" type="color">#2f3140</item>
     <item name="really_dark_green" type="color">#1c1d26</item>
 
+    <item name="red" type="color">#97282C</item>
+
 </resources>
 
 

@@ -7,6 +7,8 @@ public final class ParseConstants {
     public static final String KEY_PASSWORD = "password";
     public static final String KEY_EMAIL = "email";
 
+    public static final String KEY_PROFILE_IMAGE_NUMBER = "profile";
+
     public static final String KEY_FRIENDS_RELATION = "friendsRelation";
 
 

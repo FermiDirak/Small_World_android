@@ -20,8 +20,10 @@ import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import manuele.bryan.small_world.Activities.LogInActivity;
+import manuele.bryan.small_world.Activities.MainActivity;
 import manuele.bryan.small_world.Activities.UserActivity;
 import manuele.bryan.small_world.Adapters.UsersListViewAdapter;
 import manuele.bryan.small_world.ParseConstants;
@@ -59,6 +61,9 @@ public class UserListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        ((MainActivity) getActivity())
+                .setActionBarTitle("Recent");
+
         view = inflater.inflate(R.layout.fragment_user_list, null);
         userListView = (ListView) view.findViewById(R.id.userListView);
 
@@ -84,14 +89,18 @@ public class UserListFragment extends Fragment {
 
                     users = new ArrayList<>();
 
-                    System.out.println(mUsers.size());
-
                     for (int i = 0; i < mUsers.size(); i++) {
                         ParseUser parseUser = mUsers.get(i);
 
-                        System.out.println(parseUser.getUsername());
+                        int image = parseUser.getInt(ParseConstants.KEY_PROFILE_IMAGE_NUMBER);
+                        Random random = new Random();
+                        double distance = 1 + random.nextDouble() + random.nextInt(2);
 
-                        User user = new User(parseUser.getUsername(), "1 mile", 2);
+                        String d = "" + distance;
+                        d = d.substring(0, 5);
+
+
+                        User user = new User(parseUser.getUsername(), d + " miles", image);
 
                         users.add(user);
 
@@ -115,6 +124,10 @@ public class UserListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), UserActivity.class);
+                User user = users.get(position);
+                intent.putExtra("USERNAME", user.username);
+                intent.putExtra("DISTANCE", user.distance);
+                intent.putExtra("PROFILENUMBER", user.image);
                 startActivity(intent);
             }
         });

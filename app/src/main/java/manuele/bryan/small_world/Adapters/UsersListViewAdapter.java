@@ -58,6 +58,35 @@ public class UsersListViewAdapter extends BaseAdapter {
         holder.username.setText(user.username);
         holder.distance.setText(user.distance);
 
+        System.out.println(user.image);
+
+        switch (user.image) {
+            case 0:
+                holder.userImage.setImageDrawable(itemView.getResources().
+                getDrawable(R.drawable.pofile1));
+                break;
+            case 1:
+                holder.userImage.setImageDrawable(itemView.getResources().
+                getDrawable(R.drawable.profile2));
+                break;
+            case 2:
+                holder.userImage.setImageDrawable(itemView.getResources().
+                getDrawable(R.drawable.profile3));
+                break;
+            case 3:
+                holder.userImage.setImageDrawable(itemView.getResources().
+                        getDrawable(R.drawable.profile4));
+                break;
+            case 4:
+                holder.userImage.setImageDrawable(itemView.getResources().
+                        getDrawable(R.drawable.profile5));
+                break;
+            case 5:
+                holder.userImage.setImageDrawable(itemView.getResources().
+                        getDrawable(R.drawable.profile6));
+                break;
+        }
+
         return itemView;
     }
 

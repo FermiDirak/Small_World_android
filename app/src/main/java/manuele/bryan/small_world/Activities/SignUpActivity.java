@@ -15,6 +15,9 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
+import java.util.Random;
+
+import manuele.bryan.small_world.ParseConstants;
 import manuele.bryan.small_world.R;
 
 
@@ -55,9 +58,14 @@ public class SignUpActivity extends Activity {
                         return;
                     }
 
+                    Random random = new Random();
+                    int profileImage = random.nextInt(6);
+
                     ParseUser newUser = new ParseUser();
                     newUser.setUsername(username);
                     newUser.setPassword(pass);
+                    newUser.put(ParseConstants.KEY_PROFILE_IMAGE_NUMBER, profileImage);
+//                    newUser.add(ParseConstants.KEY_PROFILE_IMAGE_NUMBER, profileImage);
 
                     newUser.signUpInBackground(new SignUpCallback() {
                         @Override

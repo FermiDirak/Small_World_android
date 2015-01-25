@@ -77,10 +77,6 @@
         </receiver>
 
         <activity
-            android:name=".Activities.RecentActivity"
-            android:label="@string/title_activity_user_view" >
-        </activity>
-        <activity
             android:name=".Activities.UserActivity"
             android:label="@string/title_activity_user" >
         </activity>
