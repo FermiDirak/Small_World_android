@@ -1,8 +1,7 @@
-package manuele.bryan.small_world;
+package manuele.bryan.small_world.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +9,9 @@ import android.widget.EditText;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
+
+import manuele.bryan.small_world.Activities.LogInActivity;
+import manuele.bryan.small_world.R;
 
 
 public class MainActivity extends Activity {
@@ -37,7 +39,7 @@ public class MainActivity extends Activity {
     }
 
     private void navigateToLogin() {
-        Intent intent = new Intent(this, LogIn.class);
+        Intent intent = new Intent(this, LogInActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

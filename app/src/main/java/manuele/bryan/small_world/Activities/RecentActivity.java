@@ -1,35 +1,26 @@
-package manuele.bryan.small_world;
+package manuele.bryan.small_world.Activities;
 
-import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
+
+import manuele.bryan.small_world.R;
 
 
-public class SignUp extends Activity {
-
-    EditText usernameField;
-    EditText passField;
-    EditText passConfirmField;
+public class RecentActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
-
-        usernameField = (EditText) findViewById(R.id.userField);
-        passField = (EditText) findViewById(R.id.passwordField);
-        passConfirmField = (EditText) findViewById(R.id.confirmPasswordField);
-
+        setContentView(R.layout.activity_recent);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_sign_up, menu);
+        getMenuInflater().inflate(R.menu.menu_user_view, menu);
         return true;
     }
 
